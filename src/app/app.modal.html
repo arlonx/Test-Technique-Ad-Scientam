@@ -1,0 +1,101 @@
+<img src="assets/icons/arrow-back.png" (click)="onBackClick()"class="back">
+<br>
+<span class="bold">
+  Sur une échelle de 1 à 5, notez les activités physiques suivantes :
+</span>
+<span class="regular">
+  Sachant que 1 reflétera 'je n'aime pas du tout cette activité et je ne la pratiquerai jamaios" et 5 étant "J'aime beaucoup cette
+  activité et je serai extrêmement motivé pour la pratiquer"?
+</span>
+
+<div style="padding-top: 20px">
+  <table mat-table [dataSource]="sports" class="mat-elevation-z8 max">
+
+    <ng-container matColumnDef="sport">
+      <th mat-header-cell *matHeaderCellDef> Sport </th>
+      <td mat-cell *matCellDef="let element"> {{element[0]}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="1">
+      <th mat-header-cell *matHeaderCellDef> 1 </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-radio-group [(ngModel)]="element[1]">
+          <mat-radio-button name="note" value="1"></mat-radio-button>
+        </mat-radio-group>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="2">
+      <th mat-header-cell *matHeaderCellDef> 2 </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-radio-group [(ngModel)]="element[1]">
+          <mat-radio-button name="note" value="2"></mat-radio-button>
+        </mat-radio-group>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="3">
+      <th mat-header-cell *matHeaderCellDef> 3 </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-radio-group [(ngModel)]="element[1]">
+          <mat-radio-button name="note" value="3"></mat-radio-button>
+        </mat-radio-group>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="4">
+      <th mat-header-cell *matHeaderCellDef> 4 </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-radio-group [(ngModel)]="element[1]">
+          <mat-radio-button name="note" value="4"></mat-radio-button>
+        </mat-radio-group>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="5">
+      <th mat-header-cell *matHeaderCellDef> 5 </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-radio-group [(ngModel)]="element[1]">
+          <mat-radio-button name="note" value="5"></mat-radio-button>
+        </mat-radio-group>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+  <table mat-table [dataSource]="sports" class="mat-elevation-z8 min">
+
+    <ng-container matColumnDef="sport">
+      <th mat-header-cell *matHeaderCellDef> Sport </th>
+      <td mat-cell *matCellDef="let element"> {{element[0]}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="1 à 5">
+      <th mat-header-cell *matHeaderCellDef> 1 à 5 </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-slider
+          [(ngModel)]="element[1]"
+          thumbLabel
+          name="note"
+          step="1"
+          tickInterval="1"
+          min="1"
+          max="5"
+          aria-label="units"
+          ></mat-slider>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsMin"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsMin;"></tr>
+  </table>
+  <br>
+  <button mat-raised-button (click)="send()">
+  Valider
+</button>
+</div>
+

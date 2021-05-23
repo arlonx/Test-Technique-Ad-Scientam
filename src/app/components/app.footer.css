@@ -1,0 +1,28 @@
+.treatment{
+  text-align: left;
+  padding: 10px;
+  margin-top: 30px;
+  background: #38365B;
+  height: 100px;
+  width: 400px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.imgTreatment{
+  float: right;
+  width: 30px;
+  height: 30px;
+}
+
+.data{
+  font-family: Montserrat-regular;
+}
+
+.dataItalic{
+  float: right;
+  font-family: Montserrat-italic;
+  right: 15px;
+  position: absolute;
+  bottom: 0;
+}
